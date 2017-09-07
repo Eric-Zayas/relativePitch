@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Synth } from '../../audiosynth';
 
 @Component({
   selector: 'app-keyboard',
