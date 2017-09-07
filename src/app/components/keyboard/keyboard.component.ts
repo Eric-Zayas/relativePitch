@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./keyboard.component.css']
 })
 export class KeyboardComponent implements OnInit {
-
+  notes: string[] = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C'];
   constructor() { }
 
   ngOnInit() {
   }
-
 }

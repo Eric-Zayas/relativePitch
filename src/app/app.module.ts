@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+// Angular fire imports
+import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -12,6 +14,14 @@ import { HomeComponent } from './components/home/home.component';
 const appRoutes: Routes = [
  {path: '' , component: HomeComponent},
 ];
+
+export const config = {
+  apiKey: 'AIzaSyDA1H7bd56MKHLpsuXk1cN3UpSu9NkbiwE',
+  authDomain: 'relativepitch-398e7.firebaseapp.com',
+  databaseURL: 'https://relativepitch-398e7.firebaseio.com',
+  storageBucket: 'relativepitch-398e7.appspot.com',
+  messagingSenderId: '136688648145'
+};
 
 @NgModule({
   declarations: [
@@ -25,6 +35,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(config),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,82 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.clear {
+  clear: both;
+}
+.clearfix {
+  overflow: auto;
+}
+body {
+  background: #fafafa;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+  user-select: none;
+}
+h1 {
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: -1px;
+  text-align: center;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-top: 30px;
+  height: 100%;
+}
+#keyboard {
+  max-width: 900px;
+  width: 90%;
+  background: #000;
+  margin: 0 auto;
+  user-select: none;
+}
+.key-white {
+  float: left;
+  position: relative;
+  width: 14.28571%;
+  height: 100%;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding-bottom: 33%;
+}
+.key-white .key-black {
+  position: absolute;
+  z-index: 10;
+  background: #000;
+  width: 50%;
+  height: 66%;
+  border: 1px solid #ccc;
+  margin-left: 75%;
+}
+.key-white .key-black span {
+  color: #fff;
+}
+.key-white, .key-black {
+  cursor: pointer;
+}
+.hover {
+  background-color: #ddd;
+}
+span {
+  position: absolute;
+  bottom: 0.5%;
+  left: 3%;
+}
+.mainBtn {
+  display: block;
+  width: 50%;
+  padding: 0.5rem 1.5rem;
+  margin: 3rem auto;
+}
+code {
+  text-align: center;
+}
+@media (min-width: 600px) {
+  h1 {
+    font-size: 3.2rem;
+  }
+}
