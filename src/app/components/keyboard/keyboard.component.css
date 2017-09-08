@@ -26,6 +26,7 @@ h1 {
   margin: 0 auto;
   padding-top: 30px;
   height: 100%;
+  display: block;
 }
 #keyboard {
   max-width: 900px;
@@ -38,17 +39,17 @@ h1 {
   float: left;
   position: relative;
   width: 14.28571%;
-  height: 100%;
+  height:  100%;
   background: #fff;
   border: 1px solid #ccc;
-  padding-bottom: 33%;
+  padding-bottom: 16.5%;
 }
 .key-white .key-black {
   position: absolute;
   z-index: 10;
   background: #000;
   width: 50%;
-  height: 66%;
+  height: 60%;
   border: 1px solid #ccc;
   margin-left: 75%;
 }
@@ -62,6 +63,7 @@ h1 {
   background-color: #ddd;
 }
 span {
+
   position: absolute;
   bottom: 0.5%;
   left: 3%;
