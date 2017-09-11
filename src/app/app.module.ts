@@ -10,6 +10,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { AnswerComponent } from './components/answer/answer.component';
 import { HomeComponent } from './components/home/home.component';
+// Services
+import { LevelsService } from './services/levels.service';
 
 const appRoutes: Routes = [
  {path: '' , component: HomeComponent},
@@ -37,7 +39,7 @@ export const config = {
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(config),
   ],
-  providers: [],
+  providers: [LevelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
