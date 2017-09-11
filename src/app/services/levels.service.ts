@@ -54,9 +54,10 @@ generateScale(scaleType) {
   console.log(this.currentScale);
 
 }
+
 play(e) {
 
-  const path = '../assets/music/' + e + '.wav';
+  const path = '../../assets/music/' + e.target.id + '.wav';
   console.log('path1', path);
   const sound = new Audio(path);
   console.log('sound', sound);
@@ -64,6 +65,7 @@ play(e) {
   console.log('e', e);
 
 }
+
 playRandomInterval () {
 
   this.play(this.root);

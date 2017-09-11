@@ -16,9 +16,7 @@ export class KeyboardComponent implements OnInit {
   ngOnInit() {}
 
   play(e) {
-      const path = '../assets/music/' + e.target.id + '.wav';
-      const sound = new Audio(path);
-      sound.play();
-    }
+    this.levelsService.play(e);
+  }
 }
 

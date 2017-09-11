@@ -9,7 +9,7 @@ import { LevelsService } from '../../services/levels.service';
 
 export class AnswerComponent implements OnInit {
   clicked: false;
-  constructor() { }
+  constructor(public levelsService: LevelsService) { }
 
   ngOnInit() {}
 
