@@ -6,9 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./keyboard.component.css']
 })
 export class KeyboardComponent implements OnInit {
-  notes: string[] = ['C', 'D', 'E', 'F', 'G', 'A', 'B', 'C'];
+  notes: string[] = ['c4', 'c#4', 'd4', 'd#4', 'e#4' , 'e4', 'f4', 'f#4', 'g4', 'g#4', 'a4', 'a#4', 'b4'];
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  play(e) {
+    const path = '../assets/music/' + e.target.id + '.wav';
+    console.log('path1', path);
+    const sound = new Audio(path);
+    console.log('sound', sound);
+    sound.play();
+    console.log('e.target.id', e.target.id);
   }
 }
