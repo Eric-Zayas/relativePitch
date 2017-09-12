@@ -1,11 +1,22 @@
 .container {
-  margin: 10%;
+  margin: 5%;
 }
 
 #submit {
-  max-width: 50%;
+  width: 60%;
+  display: inline;
 }
 
 #playButton{
+  display: inline;
   margin-left: 1%;
+  margin-bottom: 10%;
+}
+
+.form-group{
+  display: inline-block;
+}
+
+.sub{
+  margin-left:1%;
 }

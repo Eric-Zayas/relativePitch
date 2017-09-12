@@ -29,7 +29,7 @@ h1 {
   display: block;
 }
 #keyboard {
-  max-width: 900px;
+  max-width: 100%;
   width: 90%;
   background: #000;
   margin: 0 auto;
@@ -38,8 +38,8 @@ h1 {
 .key-white {
   float: left;
   position: relative;
-  width: 14.28571%;
-  height:  100%;
+  width: 7.1426%; 
+  height:  8em;
   background: #fff;
   border: 1px solid #ccc;
   padding-bottom: 16.5%;

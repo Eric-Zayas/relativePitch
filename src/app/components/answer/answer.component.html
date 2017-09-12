@@ -1,32 +1,38 @@
 <br>
-<br>
+
 <div class="container">
 
-<form class="form-group" #f="ngForm" (ngSubmit) = "onSubmit(f)">
-    <label><h3>Interval Challenge:</h3></label>
+<form  #answer="ngForm" (ngSubmit) = "onSubmit()">
     <br>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-            Choose Level
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#"  *ngFor="let level of levels">{{ level }}</a>
-        </div>
+  <div class="form-group">
+      <label><h3>Interval Challenge:</h3></label>
+      <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Select Difficulty
+          </button>
+          
+          <div class="dropdown-menu">
+              <button href="#" class="dropdown-item" aria-labelledby="dropdownMenuButton" *ngFor="let level of levels" >{{ level }}</button>
+          </div>
+          
       </div>
+  </div>
+    
+    <br>
+    
+ 
   <br>
   <div class="form-inline">
-    <input class="form-control" type="text" name="interval" required id="submit">
-    <input class="btn btn-primary" type="submit" value="Submit">
+    <input class="form-control form-inline col-md-6" type="text" name="interval" required id="submit" [value]="">
+    <input class="btn btn-primary sub" type="submit" value="Submit">
 
-    <button class="btn btn-primary " (click)= "check()" id="playButton">Play Interval</button>
+    
   </div>
   
   
 </form>
+
 <br><br>
-
-
-
-
+<button class="btn btn-primary btn-lg " (click)= "playEasy()" id="playButton">Play Interval</button>
 </div>
 

@@ -105,4 +105,7 @@ playIntervalEasy() {
   }, 1000);
 }
 
+checkEasy() {
+  
+}
 }
