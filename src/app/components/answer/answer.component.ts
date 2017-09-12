@@ -9,6 +9,8 @@ import { LevelsService } from '../../services/levels.service';
 
 export class AnswerComponent implements OnInit {
   clicked: false;
+  levels: string[] = ['Easy', 'Medium', 'Hard'];
+
   constructor(public levelsService: LevelsService) { }
 
   ngOnInit() {}

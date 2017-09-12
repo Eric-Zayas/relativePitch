@@ -1,3 +1,11 @@
 .container {
   margin: 10%;
 }
+
+#submit {
+  max-width: 50%;
+}
+
+#playButton{
+  margin-left: 1%;
+}

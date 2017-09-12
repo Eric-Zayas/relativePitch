@@ -32,6 +32,7 @@ export class LevelsService {
     12: 'octave'
 
   };
+
   generateRandomScale() {
 
   let rand: number = Math.floor(Math.random() * 12);
@@ -47,45 +48,39 @@ generateScale(scaleType) {
 
   let rootNote = Math.floor(14 * Math.random());
   this.currentScale.push(this.notes[rootNote]);
+
   for (let i = 0; i < scaleType.length; i++) {
     rootNote += scaleType[i];
     this.currentScale.push(this.notes[rootNote]);
   }
-  console.log(this.currentScale);
 
 }
 
 play(e) {
-
   const path = '../../assets/music/' + e.target.id + '.wav';
-  console.log('path1', path);
   const sound = new Audio(path);
-  console.log('sound', sound);
   sound.play();
-  console.log('e', e);
 
 }
 
 playRandomInterval () {
 
   this.play(this.root);
-  setTimeout(() => {
 
+  setTimeout(() => {
     this.play(this.randomized[0]);
     this.randomized.shift();
   }, 1000);
 
 }
 
-
-
 shuffle(array) {
 
   let i = 0;
   let j = 0;
 
-  let temp = null;  for (i = array.length - 1; i > 0; i -= 1) {
-
+  let temp = null;
+  for (i = array.length - 1; i > 0; i -= 1) {
     j = Math.floor(Math.random() * (i + 1));
     temp = array[i];
     array[i] = array[j];
@@ -93,11 +88,12 @@ shuffle(array) {
   }
   return array;
 
-}randomize() {
-
+}
+randomize() {
   this.randomized = this.shuffle(this.randomScale);
+}
 
-}// Easy mode
+// Easy mode
 
 playIntervalEasy() {
   if ( this.count === 7) {this.count = 0; }

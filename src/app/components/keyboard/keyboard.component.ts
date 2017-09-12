@@ -20,3 +20,15 @@ export class KeyboardComponent implements OnInit {
   }
 }
 
+// Steps to MVP!
+  // 1. Ability to select difficulty level
+  // 2. form validation(able to submit answer)
+  // 3. Create/select easy difficulty
+  // 4. Styling Issues
+  // 5. Deploy
+
+// Next Steps
+  // Create Medium difficulty
+  // Create Hard difficulty
+  // Implement Authentication
+  // Track progress over time via chart.js
