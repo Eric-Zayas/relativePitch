@@ -17,6 +17,8 @@ export class AnswerComponent implements OnInit {
   count = 0;
   recent: string;
   value: string;
+  lvl: string;
+
   intervals = {
     0: 'zero',
     1:  'minor second',
@@ -50,13 +52,13 @@ export class AnswerComponent implements OnInit {
   // }- this.notes.indexOf(this.cRoot))
 
   onSubmit() {
-    console.log('index Of', (this.notes.indexOf(this.recent)) );
-
-    if ( this.value == this.intervals[(this.notes.indexOf(this.recent) - this.notes.indexOf(this.cRoot))]) {
-      console.log('correct');
-    } else {
-      console.log('incorrect');
-    }
+    // console.log('index Of', (this.notes.indexOf(this.recent)) );
+    console.log();
+    // if ( this.value == this.intervals[(this.notes.indexOf(this.recent) - this.notes.indexOf(this.cRoot))]) {
+    //   console.log('correct');
+    // } else {
+    //   console.log('incorrect');
+    // }
   }
 
   playEasy() {
@@ -68,6 +70,11 @@ export class AnswerComponent implements OnInit {
       this.play(this.cMajorScale[0]);
       this.recent = this.cMajorScale.shift();
     }, 1000);
+  }
+
+  display(e) {
+    console.log('e value', e.target.innerHTML);
+    this.lvl = e.target.innerHTML;
   }
 }
 
