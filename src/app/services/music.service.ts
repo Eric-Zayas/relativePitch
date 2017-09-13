@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable()
-export class LevelsService {
+export class MusicService {
   // tslint:disable-next-line:max-line-length
   notes: string[] = ['c4', 'csharp4', 'd4', 'dsharp4' , 'e4', 'f4', 'fsharp4', 'g4', 'gsharp4', 'a4', 'asharp4', 'b4', 'c4', 'csharp4', 'd4', 'dsharp4' , 'e4', 'f4', 'fsharp4', 'g4', 'gsharp4', 'a4', 'asharp4', 'b4'];
-  majorScale: [2, 2, 1, 2, 2, 2, 1];
-  minorScale: [2, 1, 2, 2, 1, 2, 2];
+
+  scales: any = {
+    'major': [2, 2, 1, 2, 2, 2, 1],
+    'minor': [2, 1, 2, 2, 1, 2, 2]
+  };
+
+
   root: string;
   randomScale: string[] = [];
   randomized: string[] = [];
@@ -14,6 +20,7 @@ export class LevelsService {
 
   cMajorScale: ['c4', 'd4', 'e4', 'f4', 'g4', 'a4', 'b4' ];
   cRoot: 'c4';
+
   constructor() { }
 
   intervals: {
@@ -33,17 +40,36 @@ export class LevelsService {
 
   };
 
-  generateRandomScale() {
+  generateRandomMajorScale() {
+    let rand: number = Math.floor(Math.random() * 11);
+    // tslint:disable-next-line:prefer-const
+    let majorScale: string[];
+    this.root = this.notes[rand];
+    let note: string = this.notes[rand];
 
-  let rand: number = Math.floor(Math.random() * 12);
-  // this.root = this.notes[rand];
-  for (let i = 0; i < 8; i++) {
-    this.randomScale.push(this.root);
-    rand += this.majorScale[i];
-    // this.root = this.notes[rand];
+    for (let i = 0; i < 8; i++) {
+      majorScale.push(note);
+      rand += this.scales.major[i];
+      note = this.notes[rand];
+    }
+    return majorScale;
   }
 
+generateRandomMinorScale() {
+  let rand: number = Math.floor(Math.random() * 11);
+  // tslint:disable-next-line:prefer-const
+  let minorScale: string[];
+  this.root = this.notes[rand];
+  let note: string = this.notes[rand];
+
+  for (let i = 0; i < 8; i++) {
+    minorScale.push(note);
+    rand += this.scales.minor[i];
+    note = this.notes[rand];
+  }
+  return minorScale;
 }
+
 generateScale(scaleType) {
 
   let rootNote = Math.floor(14 * Math.random());
@@ -56,24 +82,31 @@ generateScale(scaleType) {
 
 }
 
-play(e) {
+// Two different play methods depending 
+playOnKeyboard(e) {
   const path = '../../assets/music/' + e.target.id + '.wav';
   const sound = new Audio(path);
   sound.play();
 
 }
 
+playNote(noteVal) {
+  const path = '../../assets/music/' + noteVal + '.wav';
+  const sound = new Audio(path);
+  sound.play();
+}
+
 playRandomInterval () {
 
-  this.play(this.root);
-
+  this.playNote(this.root);
   setTimeout(() => {
-    this.play(this.randomized[0]);
+    this.playNote(this.randomized[0]);
     this.randomized.shift();
   }, 1000);
 
 }
 
+// fisher-yates shuffle
 shuffle(array) {
 
   let i = 0;
@@ -89,8 +122,9 @@ shuffle(array) {
   return array;
 
 }
-randomize() {
-  this.randomized = this.shuffle(this.randomScale);
+
+randomize(scaleToRandomize) {
+  return this.shuffle(scaleToRandomize);
 }
 
 // Easy mode
@@ -98,9 +132,9 @@ randomize() {
 playIntervalEasy() {
   if ( this.count === 7) {this.count = 0; }
   this.count ++;
-  this.play(this.cRoot);
+  this.playNote(this.cRoot);
   setTimeout(() => {
-    this.play(this.cMajorScale[0]);
+    this.playNote(this.cMajorScale[0]);
     this.cMajorScale.shift();
   }, 1000);
 }

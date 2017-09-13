@@ -11,7 +11,9 @@ import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { AnswerComponent } from './components/answer/answer.component';
 import { HomeComponent } from './components/home/home.component';
 // Services
-import { LevelsService } from './services/levels.service';
+import { MusicService } from './services/music.service';
+import { EasyComponent } from './components/easy/easy.component';
+import { MediumComponent } from './components/medium/medium.component';
 
 const appRoutes: Routes = [
  {path: '' , component: HomeComponent},
@@ -31,7 +33,9 @@ export const config = {
     NavbarComponent,
     KeyboardComponent,
     AnswerComponent,
-    HomeComponent
+    HomeComponent,
+    EasyComponent,
+    MediumComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,7 @@ export const config = {
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(config),
   ],
-  providers: [LevelsService],
+  providers: [MusicService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

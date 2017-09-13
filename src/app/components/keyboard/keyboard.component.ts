@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LevelsService } from '../../services/levels.service';
+import { MusicService } from '../../services/music.service';
 
 // Note: sound will not play when note name is clicked on i.e. C
 
@@ -8,15 +8,16 @@ import { LevelsService } from '../../services/levels.service';
   templateUrl: './keyboard.component.html',
   styleUrls: ['./keyboard.component.css']
 })
+
 export class KeyboardComponent implements OnInit {
   playNote: any;
 
-  constructor(public levelsService: LevelsService) { }
+  constructor(public musicService: MusicService) { }
 
   ngOnInit() {}
 
   play(e) {
-    this.levelsService.play(e);
+    this.musicService.playOnKeyboard(e);
   }
 }
 
