@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class MusicService {
   // tslint:disable-next-line:max-line-length
-  notes: string[] = ['c4', 'csharp4', 'd4', 'dsharp4' , 'e4', 'f4', 'fsharp4', 'g4', 'gsharp4', 'a4', 'asharp4', 'b4', 'c4', 'csharp4', 'd4', 'dsharp4' , 'e4', 'f4', 'fsharp4', 'g4', 'gsharp4', 'a4', 'asharp4', 'b4'];
+  notes: string[] = ['c4', 'csharp4', 'd4', 'dsharp4' , 'e4', 'f4', 'fsharp4', 'g4', 'gsharp4', 'a4', 'asharp4', 'b4', 'c5', 'csharp5', 'd5', 'dsharp5' , 'e5', 'f5', 'fsharp5', 'g5', 'gsharp5', 'a5', 'asharp5', 'b5'];
 
   scales: any = {
     'major': [2, 2, 1, 2, 2, 2, 1],
@@ -71,17 +71,15 @@ generateRandomMinorScale() {
 }
 
 generateScale(scaleType, rootNote) {
-
-  rootNote = rootNote || Math.floor(11 * Math.random());
+  rootNote = rootNote || this.notes[Math.floor(11 * Math.random())];
 
   const scale: string[] = [];
-  scale.push(this.notes[rootNote]);
-
+  scale.push(rootNote);
+  let track = this.notes.indexOf(rootNote);
   for (let i = 0; i < scaleType.length; i++) {
-    rootNote += scaleType[i];
-    scale.push(this.notes[rootNote]);
+    track += scaleType[i];
+    scale.push(this.notes[track]);
   }
-
   return scale;
 }
 

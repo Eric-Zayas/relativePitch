@@ -31,28 +31,37 @@ export class EasyComponent implements OnInit {
   }
 
 
-  // Each difficulty is going to be split up into three parts
+  // Each difficulty is going to be split up into parts
   part1() {
-    this.cScale = this.musicService.generateScale(this.scales.major, 'c');
-    this.root = this.cScale[0];
+    if (this.count === 0) {
+      this.cScale = this.musicService.generateScale(this.scales.major, 'c4');
+      this.root = this.cScale[0];
+    }
+
+    console.log('part 1 this.cScale and this.root', this.cScale, this.root);
     this.play(this.root);
 
     setTimeout(() => {
-      this.play(this.cScale[0]);
       this.recent = this.cScale.shift();
+      this.play(this.recent);
     }, 1000);
-
+    this.count += 1;
   }
 
   part2() {
-    this.cScale = this.musicService.generateScale(this.scales.minor, 'c');
-    this.root = this.cScale[0];
+    if (this.count === 8) {
+      this.cScale = this.musicService.generateScale(this.scales.minor, 'c4');
+      console.log('cScale', this.cScale);
+      this.root = this.cScale[0];
+    }
+
     this.play(this.root);
 
     setTimeout(() => {
-      this.play(this.cScale[0]);
       this.recent = this.cScale.shift();
+      this.play(this.recent);
     }, 1000);
+    this.count += 1;
   }
 
 
@@ -60,13 +69,13 @@ export class EasyComponent implements OnInit {
 
   }
   playEasy() {
-    if ( this.count === 7) {this.count = 0; }
-    this.count ++;
-    this.play(this.root);
-    setTimeout(() => {
-      this.play(this.cScale[0]);
-      this.recent = this.cScale.shift();
-    }, 1000);
-
+    console.log('playEasy clicked');
+    if (this.count < 8) {
+      this.part1();
+    }
+    if (this.count > 7 && this.count <= 14) {
+      console.log('this.count', this.count);
+      this.part2();
+    }
   }
 }
