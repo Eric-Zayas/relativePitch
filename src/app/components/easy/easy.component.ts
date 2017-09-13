@@ -62,7 +62,7 @@ export class EasyComponent implements OnInit {
   playEasy() {
     if ( this.count === 7) {this.count = 0; }
     this.count ++;
-    this.play(this.root); 
+    this.play(this.root);
     setTimeout(() => {
       this.play(this.cScale[0]);
       this.recent = this.cScale.shift();

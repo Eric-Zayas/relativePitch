@@ -131,6 +131,13 @@ randomize(scaleToRandomize) {
   return this.shuffle(scaleToRandomize);
 }
 
+generateBasicChord(rootNote) {
+  const chord: string[] = [];
+  chord.push(rootNote);
+  for (let i = this.notes.indexOf(rootNote) + 2; i < this.notes.indexOf(rootNote) + 4; i += 2) {
+    chord.push(this.notes[i]);
+  }
+}
 // Easy mode
 
 playIntervalEasy() {

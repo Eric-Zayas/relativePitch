@@ -23,7 +23,7 @@ export class AnswerComponent implements OnInit {
   intervals: object;
 
   constructor(public musicService: MusicService) {
-    
+
   }
 
   ngOnInit() {}
@@ -48,7 +48,7 @@ export class AnswerComponent implements OnInit {
       console.log('this.value', this.value);
       console.log('correct');
       this.correct = true;
-    } else {
+    } else if (this.value !== this.intervals[interval]) {
       this.correct = false;
     }
   }
