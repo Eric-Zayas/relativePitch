@@ -20,23 +20,11 @@ export class AnswerComponent implements OnInit {
   lvl: string;
   correct: any;
 
-  intervals = {
-    0: 'zero',
-    1:  'minor second',
-    2: 'major second',
-    3: 'minor third',
-    4: 'major third',
-    5: 'perfect fourth',
-    6: ['augmented fourth', 'diminished fifth'],
-    7: 'perfect fifth',
-    8: 'minor sixth',
-    9: 'major sixth',
-    10: 'minor seventh',
-    11: 'major seventh',
-    12: 'octave'
+  intervals: object;
 
-  };
-  constructor(public musicService: MusicService) { }
+  constructor(public musicService: MusicService) {
+    
+  }
 
   ngOnInit() {}
 

@@ -70,19 +70,23 @@ generateRandomMinorScale() {
   return minorScale;
 }
 
-generateScale(scaleType) {
+generateScale(scaleType, rootNote) {
 
-  let rootNote = Math.floor(14 * Math.random());
-  this.currentScale.push(this.notes[rootNote]);
+  rootNote = rootNote || Math.floor(11 * Math.random());
+
+  const scale: string[] = [];
+  scale.push(this.notes[rootNote]);
 
   for (let i = 0; i < scaleType.length; i++) {
     rootNote += scaleType[i];
-    this.currentScale.push(this.notes[rootNote]);
+    scale.push(this.notes[rootNote]);
   }
 
+  return scale;
 }
 
-// Two different play methods depending 
+// Two different play methods depending on where its being played, one is passed an event, the other the value of the note
+
 playOnKeyboard(e) {
   const path = '../../assets/music/' + e.target.id + '.wav';
   const sound = new Audio(path);
@@ -93,7 +97,7 @@ playOnKeyboard(e) {
 playNote(noteVal) {
   const path = '../../assets/music/' + noteVal + '.wav';
   const sound = new Audio(path);
-  sound.play();
+  sound.play(); // play is a method of Audio
 }
 
 playRandomInterval () {
@@ -139,7 +143,5 @@ playIntervalEasy() {
   }, 1000);
 }
 
-checkEasy() {
-  
-}
+
 }
