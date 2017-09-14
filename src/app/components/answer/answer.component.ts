@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MusicService } from '../../services/music.service';
 
 @Component({
@@ -8,26 +8,33 @@ import { MusicService } from '../../services/music.service';
 })
 
 export class AnswerComponent implements OnInit {
-  clicked: false;
   levels: string[] = ['Easy', 'Medium', 'Hard'];
-    // tslint:disable-next-line:max-line-length
-  notes: string[] = ['c4', 'csharp4', 'd4', 'dsharp4' , 'e4', 'f4', 'fsharp4', 'g4', 'gsharp4', 'a4', 'asharp4', 'b4', 'c5', 'csharp5', 'd5', 'dsharp5' , 'e5', 'f5', 'fsharp5', 'g5', 'gsharp5', 'a5', 'asharp5', 'b5'];
-  cMajorScale = ['c4', 'd4', 'e4', 'f4', 'g4', 'a4', 'b4' ];
+  notes: string[];
   cRoot = 'c4';
   count = 0;
   recent: string;
   value: string;
-  lvl: string;
-  correct: any;
-
-  intervals: object;
+  lvl = '';
+  correct: boolean;
+  incorrect: boolean;
+  intervals: any;
+  interval: any;
+  clicked= false;
 
   constructor(public musicService: MusicService) {
+    this.intervals = this.musicService.intervals;
+    this.notes = this.musicService.notes;
 
   }
 
   ngOnInit() {}
 
+  recieveData($event) {
+    this.recent = $event;
+    console.log('event');
+    
+    // this.onSubmit();
+  }
 
   play(e) {
     console.log('e', e);
@@ -36,39 +43,30 @@ export class AnswerComponent implements OnInit {
     sound.play();
   }
 
-  // difficulty() {
-  //   console.log('hello, im difficult');
-  // }- this.notes.indexOf(this.cRoot))
-
   onSubmit() {
-
-    const interval = this.notes.indexOf(this.recent) - this.notes.indexOf(this.cRoot);
-
-    if (this.value === this.intervals[interval]) {
-      console.log('this.value', this.value);
-      console.log('correct');
-      this.correct = true;
-    } else if (this.value !== this.intervals[interval]) {
-      this.correct = false;
+    this.interval = this.notes.indexOf(this.recent) - this.notes.indexOf(this.cRoot);
+    if (this.clicked) {
+      console.log('this.interval', this.interval);
+      this.validate();
+      this.value = '';
+    } else {
+      this.clicked = true;
     }
   }
 
-  playEasy() {
-    if ( this.count === 7) {this.count = 0; }
-    this.count ++;
-    this.play(this.cRoot);
-    this.correct = '';
-    console.log(this.cMajorScale);
-    setTimeout(() => {
-      this.play(this.cMajorScale[0]);
-      this.recent = this.cMajorScale.shift();
-    }, 1000);
-
+  validate() {
+    console.log('intervals', this.intervals[this.interval]);
+    if (this.value === this.intervals[this.interval] ) {
+      this.correct = true;
+      this.incorrect = false;
+    } else if (this.value !== this.intervals[this.interval]) {
+      this.incorrect = true;
+      this.correct = false;
+    }
   }
-
   display(e) {
     // console.log('e value', e.target.innerHTML);
     this.lvl = e.target.innerHTML;
-    console.log('this.lvl', this.lvl);
+
   }
 }

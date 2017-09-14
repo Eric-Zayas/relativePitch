@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MusicService } from '../../services/music.service';
 
 @Component({
@@ -16,6 +16,8 @@ export class EasyComponent implements OnInit {
   intervals: any;
   recent: string;
 
+  @Output() sendData = new EventEmitter<string>();
+
   constructor(public musicService: MusicService) {
     this.notes = musicService.notes;
     this.scales = musicService.scales;
@@ -25,11 +27,9 @@ export class EasyComponent implements OnInit {
   ngOnInit() {
   }
 
-
   play(noteVal) {
    this.musicService.playNote(noteVal);
   }
-
 
   // Each difficulty is going to be split up into parts
   part1() {
@@ -38,20 +38,17 @@ export class EasyComponent implements OnInit {
       this.root = this.cScale[0];
     }
 
-    console.log('part 1 this.cScale and this.root', this.cScale, this.root);
     this.play(this.root);
-
+    this.recent = this.cScale.shift();
     setTimeout(() => {
-      this.recent = this.cScale.shift();
       this.play(this.recent);
     }, 1000);
     this.count += 1;
   }
 
   part2() {
-    if (this.count === 8) {
+    if (this.count === 9) {
       this.cScale = this.musicService.generateScale(this.scales.minor, 'c4');
-      console.log('cScale', this.cScale);
       this.root = this.cScale[0];
     }
 
@@ -68,14 +65,24 @@ export class EasyComponent implements OnInit {
   part3() {
 
   }
+
   playEasy() {
+
     console.log('playEasy clicked');
     if (this.count < 8) {
+      console.log('this.count', this.count);
       this.part1();
     }
-    if (this.count > 7 && this.count <= 14) {
+    if (this.count === 8 && this.count <= 15) {
       console.log('this.count', this.count);
       this.part2();
     }
+
   }
+  event() {
+    this.playEasy();
+    this.sendData.emit(this.recent);
+
+  }
+
 }

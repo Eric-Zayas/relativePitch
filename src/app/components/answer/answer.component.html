@@ -23,17 +23,19 @@
     <input class="form-control form-inline col-md-6" type="text" name="interval" required id="submit" [(ngModel)]="value">
     <input class="btn btn-primary sub" type="submit" value="Submit" (click)="onSubmit()">
  </div>
+
  <div  *ngIf="correct" class="alert alert-success" role="alert">
     Correct!
  </div>
- <div  *ngIf="!correct" class="alert alert-danger" role="alert">
+ <div  *ngIf="incorrect" class="alert alert-danger" role="alert">
     Incorrect!
  </div>
-  <p>{{ value }}</p>
+
   
 </form>
 
 <br><br>
-<app-easy></app-easy>
+<app-easy (sendData)= recieveData($event) ></app-easy>
+
 </div>
 

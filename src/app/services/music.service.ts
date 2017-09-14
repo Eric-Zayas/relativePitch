@@ -23,7 +23,7 @@ export class MusicService {
 
   constructor() { }
 
-  intervals: {
+  intervals = {
     0: 'zero',
     1:  'minor second',
     2: 'major second',
