@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import * as createjs from 'createjs-module';
 
 @Injectable()
 export class MusicService {
@@ -20,8 +20,7 @@ export class MusicService {
 
   cMajorScale: ['c4', 'd4', 'e4', 'f4', 'g4', 'a4', 'b4' ];
   cRoot: 'c4';
-
-  constructor() { }
+  audioPath = '../../assets/music/';
 
   intervals = {
     0: 'zero',
@@ -37,8 +36,31 @@ export class MusicService {
     10: 'minor seventh',
     11: 'major seventh',
     12: 'octave'
-
   };
+
+
+  sounds = [
+  {id: 'c4', src: 'c4.wav'},
+  {id: 'd4', src: 'd4.wav'},
+  {id: 'e4', src: 'e4.wav'},
+  {id: 'f4', src: 'f4.wav'},
+  {id: 'g4', src: 'g4.wav'},
+  {id: 'a4', src: 'a4.wav'},
+  {id: 'b4', src: 'b4.wav'} ];
+
+  handleLoad(event) {
+    createjs.Sound.play(event.src);
+  }
+
+  init() {
+    createjs.Sound.addEventListener('fileLoad', this.handleLoad);
+    createjs.Sound.registerSounds(this.sounds, this.audioPath);
+  }
+
+
+  constructor() { }
+
+  // tslint:disable-next-line:member-ordering
 
   generateRandomMajorScale() {
     let rand: number = Math.floor(Math.random() * 11);
