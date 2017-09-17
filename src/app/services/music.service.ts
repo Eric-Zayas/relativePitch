@@ -20,7 +20,7 @@ export class MusicService {
 
   cMajorScale: ['c4', 'd4', 'e4', 'f4', 'g4', 'a4', 'b4' ];
   cRoot: 'c4';
-  audioPath = '../../assets/music';
+  audioPath = '../../assets/music/';
 
   intervals = {
     0: 'zero',
@@ -40,13 +40,13 @@ export class MusicService {
 
 
   sounds = [
-  {id: 'c4', src: 'c4.mp3'},
-  {id: 'd4', src: 'd4.mp3'},
-  {id: 'e4', src: 'e4.mp3'},
-  {id: 'f4', src: 'f4.mp3'},
-  {id: 'g4', src: 'g4.mp3'},
-  {id: 'a4', src: 'a4.mp3'},
-  {id: 'b4', src: 'b4.mp3'} ];
+  {id: 'c4', src: 'c4.wav'},
+  {id: 'd4', src: 'd4.wav'},
+  {id: 'e4', src: 'e4.wav'},
+  {id: 'f4', src: 'f4.wav'},
+  {id: 'g4', src: 'g4.wav'},
+  {id: 'a4', src: 'a4.wav'},
+  {id: 'b4', src: 'b4.wav'} ];
 
   handleLoad(event) {
     createjs.Sound.play(event.src);
