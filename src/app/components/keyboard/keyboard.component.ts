@@ -11,10 +11,19 @@ import { MusicService } from '../../services/music.service';
 
 export class KeyboardComponent implements OnInit {
   playNote: any;
+  // Reminder, create an interface later
+  sounds;
+  audioPath;
 
-  constructor(public musicService: MusicService) { }
 
-  ngOnInit() {}
+  constructor(public musicService: MusicService) {
+    this.sounds = this.musicService.sounds;
+    this.audioPath = this.musicService.audioPath;
+  }
+
+  ngOnInit() {
+    this.musicService.init();
+  }
 
   play(e) {
     this.musicService.playOnKeyboard(e);

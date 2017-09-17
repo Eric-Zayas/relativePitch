@@ -2,23 +2,27 @@
 
 <div class="container">
 
-<form  #answer="ngForm" >
+<form #answer="ngForm" >
     <br>
+    <br>
+   
   <div class="form-group">
-      <label><h3>Interval Challenge: {{ lvl }} </h3></label>
-      <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Select Difficulty
-          </button>
-          
-          <div class="dropdown-menu">
-              <button href="#" class="dropdown-item" aria-labelledby="dropdownMenuButton" *ngFor="let level of levels" (click)="display($event)">{{ level }}</button>
-          </div>
-          
-      </div>
+        <h1 id="interval">Interval Challenge: {{ lvl }}    <div class="dropdown">
+                <div class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Difficulty
+                </div>
+                
+                <div class="dropdown-menu">
+                    <button href="#" class="dropdown-item" aria-labelledby="dropdownMenuButton" *ngFor="let level of levels" (click)="display($event)">{{ level }}</button>
+                </div>
+                
+            </div> </h1>
+   
   </div>
   <br>
   <br>
+
+  
   <div class="form-inline">
     <input class="form-control form-inline col-md-6" type="text" name="interval" required id="submit" [(ngModel)]="value">
     <input class="btn btn-primary sub" type="submit" value="Submit" (click)="onSubmit()">
