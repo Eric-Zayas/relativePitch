@@ -32,7 +32,6 @@ export class AnswerComponent implements OnInit {
   recieveData($event) {
     this.recent = $event;
     console.log('event');
-    
     // this.onSubmit();
   }
 
@@ -66,7 +65,7 @@ export class AnswerComponent implements OnInit {
   }
   display(e) {
     // console.log('e value', e.target.innerHTML);
-    this.lvl = e.target.innerHTML;
-
+    // this.lvl = e.target.innerHTML;
+    document.getElementById('dropdownMenuButton').innerHTML = e.target.innerHTML;
   }
 }

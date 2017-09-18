@@ -7,12 +7,15 @@
 #submit {
   width: 60%;
   display: inline;
+
 }
 
 #playButton{
   display: inline;
   margin-left: 1%;
   margin-bottom: 10%;
+  background-color: #3FA7D6;
+  color: #f7f7ff;
 }
 
 .form-group{
@@ -30,13 +33,65 @@
 .dropdown{
   display:inline-block;
   padding: 0;
-  margin-bottom: 100px; 
+  margin-bottom: 100px;
+  background-color: #3FA7D6;
+  border: 0;
 }
 
+
+
+
+.form-group{
+  margin-top: 3%;
+  width: 100%;
+}
+
+.dropdown-toggle{
+  background-color: #3FA7D6;
+  border-radius: 0;
+
+}
+
+.btn{
+  background-color: #3FA7D6;
+}
+.btn-secondary{background-color: #3FA7D6;}
+
+/* Select Challenge Header and Drop Down Menu */
 #interval{
   display: inline-block;
-
   padding: 0;
+  background-color: #3FA7D6;
+  color: #f7f7ff;
+  font-size: 1.4rem;
+  padding-right: 2%;
+  display: inline-block;
+  margin: 0;
+  /* position:fixed; */
+}
 
- 
+#drop{
+  display:inline-block;;
+  color: #f7f7ff;
+  background-color: #3FA7D6;
+  margin: 0;
+  /* height: 26px; */
+  font-size: 1.4rem;
+  /* position:fixed; */
+}
+
+.dropItem{
+  display: block;
+  /* position: fixed; */
+  color: #f7f7ff;
+  background-color: #3FA7D6;
+  margin: 0;
+  /* height: 26px; */
+  font-size: 100%;
+  margin-top: 2%;
+  display:none;
+}
+
+.dropItemMenu{
+  display: inline-block;
 }
