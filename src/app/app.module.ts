@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MusicService } from './services/music.service';
 import { EasyComponent } from './components/easy/easy.component';
 import { MediumComponent } from './components/medium/medium.component';
+import { ChallengeSelectComponent } from './components/challenge-select/challenge-select.component';
 
 const appRoutes: Routes = [
  {path: '' , component: HomeComponent},
@@ -35,7 +36,8 @@ export const config = {
     AnswerComponent,
     HomeComponent,
     EasyComponent,
-    MediumComponent
+    MediumComponent,
+    ChallengeSelectComponent
   ],
   imports: [
     BrowserModule,

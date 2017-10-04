@@ -1,55 +1,19 @@
 <br>
-
 <div class="container">
+  <br><br>
 
-<form #answer="ngForm" >
-    <br>
-    <br>
-   
-  <div class="form-group">
-        <div id="interval"> Interval Challenge:</div>
-            
-            <!-- <div class="dropdown">
-                <div class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Difficulty
-                </div>
-                
-                <div class="dropdown-menu">
-                    <button href="#" class="dropdown-item" aria-labelledby="dropdownMenuButton" *ngFor="let level of levels" (click)="display($event)">{{ level }}</button>
-                </div>
-                
-            </div> -->
-          
-       
-        <div id="drop">
-            Select
-           
-        </div>
-        <div class="dropItemMenu">
-                <div href="#"  class="dropItem" *ngFor="let level of levels" (click)="display($event)">{{ level }}</div>
-        </div>
-  </div>
-  <br>
-  <br>
+ <app-challenge-select></app-challenge-select>
 
-  
+  <br><br>
+
   <div class="form-inline">
     <input class="form-control form-inline col-md-6" type="text" name="interval" required id="submit" [(ngModel)]="value">
     <input class="btn btn-primary sub" type="submit" value="Submit" (click)="onSubmit()">
- </div>
+  </div>
 
- <div  *ngIf="correct" class="alert alert-success" role="alert">
-    Correct!
- </div>
- <div  *ngIf="incorrect" class="alert alert-danger" role="alert">
-    Incorrect!
- </div>
+  <div  *ngIf="correct" class="alert alert-success" role="alert">Correct! </div>
+  <div  *ngIf="incorrect" class="alert alert-danger" role="alert">Incorrect! </div>
+  <br><br>
 
-  
-</form>
-
-<br><br>
-<app-easy (sendData)= recieveData($event) ></app-easy>
-
+  <app-easy (sendData)= recieveData($event) ></app-easy>
 </div>
-
