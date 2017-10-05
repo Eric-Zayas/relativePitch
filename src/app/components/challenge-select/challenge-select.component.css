@@ -4,12 +4,7 @@
 }
 
 .header {
-  background-color: #3fa7d6;
-  color: #f7f7ff;
-  text-align: center;
-  padding: 1%; 
-  height: 100%;
-  width: 30%;
+  margin-right: 5%;
 }
 
 .drop {

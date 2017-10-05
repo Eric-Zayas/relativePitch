@@ -12,7 +12,7 @@ export class MusicService {
   };
 
 
-  root: string;
+  root: string; 
   randomScale: string[] = [];
   randomized: string[] = [];
   count: number;
