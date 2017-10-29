@@ -42,7 +42,7 @@ export class EasyComponent implements OnInit {
     this.recent = this.cScale.shift();
     setTimeout(() => {
       this.play(this.recent);
-    }, 1000);
+    }, 800);
     this.count += 1;
   }
 
@@ -68,17 +68,14 @@ export class EasyComponent implements OnInit {
 
   playEasy() {
 
-    console.log('playEasy clicked');
     if (this.count < 8) {
-      console.log('this.count', this.count);
       this.part1();
     }
     if (this.count === 8 && this.count <= 15) {
-      console.log('this.count', this.count);
       this.part2();
     }
-
   }
+
   event() {
     this.playEasy();
     this.sendData.emit(this.recent);
