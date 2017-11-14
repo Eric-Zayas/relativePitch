@@ -15,6 +15,7 @@ import { MusicService } from './services/music.service';
 import { EasyComponent } from './components/easy/easy.component';
 import { MediumComponent } from './components/medium/medium.component';
 import { ChallengeSelectComponent } from './components/challenge-select/challenge-select.component';
+import { GenerateScaleComponent } from './components/generate-scale/generate-scale.component';
 
 const appRoutes: Routes = [
  {path: '' , component: HomeComponent},
@@ -37,7 +38,8 @@ export const config = {
     HomeComponent,
     EasyComponent,
     MediumComponent,
-    ChallengeSelectComponent
+    ChallengeSelectComponent,
+    GenerateScaleComponent
   ],
   imports: [
     BrowserModule,
