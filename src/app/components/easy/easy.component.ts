@@ -79,7 +79,6 @@ export class EasyComponent implements OnInit {
   event() {
     this.playEasy();
     this.sendData.emit(this.recent);
-
   }
 
 }

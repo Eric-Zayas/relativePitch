@@ -46,7 +46,7 @@ h1 {
 }
 .key-white .key-black {
   position: absolute;
-  z-index: 10;
+  z-index: 100;
   background: #000;
   width: 50%;
   height: 60%;
@@ -64,11 +64,13 @@ h1 {
 }
 span {
   text-align:center;
-
   position: absolute;
   bottom: 0.5%;
   left: 3%;
   margin:0;
+  padding: 0;
+  display: inline;
+  border: 1px solid black;
 }
 .mainBtn {
   display: block;
@@ -95,10 +97,7 @@ code {
   #full{
     display: none;
   }
-  #keyboard1{
-    /* display: flex; */
-   
-  }
+
   .key-white {
     float: left;
     position: relative;

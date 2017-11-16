@@ -32,20 +32,21 @@ export class AnswerComponent implements OnInit {
   recieveData($event) {
     this.recent = $event;
     console.log('event');
-    // this.onSubmit();
   }
 
   play(e) {
-    console.log('e', e);
     const path = '../../assets/music/' + e + '.wav';
     const sound = new Audio(path);
     sound.play();
   }
 
+  getInterval() {
+    return this.interval = this.notes.indexOf(this.recent) - this.notes.indexOf(this.cRoot);
+  }
+
   onSubmit() {
-    this.interval = this.notes.indexOf(this.recent) - this.notes.indexOf(this.cRoot);
+    this.getInterval();
     if (this.clicked) {
-      console.log('this.interval', this.interval);
       this.validate();
       this.value = '';
     } else {
@@ -54,18 +55,16 @@ export class AnswerComponent implements OnInit {
   }
 
   validate() {
-    console.log('intervals', this.intervals[this.interval]);
+    this.value = this.value.toLowerCase();
     if (this.value === this.intervals[this.interval] ) {
       this.correct = true;
       this.incorrect = false;
-    } else if (this.value !== this.intervals[this.interval]) {
+    } else {
       this.incorrect = true;
       this.correct = false;
     }
   }
   display(e) {
-    // console.log('e value', e.target.innerHTML);
-    // this.lvl = e.target.innerHTML;
     document.getElementById('dropdownMenuButton').innerHTML = e.target.innerHTML;
   }
 }

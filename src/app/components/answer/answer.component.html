@@ -11,9 +11,10 @@
     <input class="btn btn-primary sub" type="submit" value="Submit" (click)="onSubmit()">
   </div>
 
-  <div  *ngIf="correct" class="alert alert-success" role="alert">Correct! </div>
-  <div  *ngIf="incorrect" class="alert alert-danger" role="alert">Incorrect! </div>
+  <div  *ngIf="correct" class="alert alert-success" role="alert"> Correct! </div>
+  <div  *ngIf="incorrect" class="alert alert-danger" role="alert"> Incorrect! </div>
   <br><br>
 
   <app-easy (sendData)= recieveData($event) ></app-easy>
+  <app-proficiency-table></app-proficiency-table>
 </div>
