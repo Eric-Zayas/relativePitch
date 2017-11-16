@@ -31,7 +31,7 @@ export class AnswerComponent implements OnInit {
 
   recieveData($event) {
     this.recent = $event;
-    console.log('event');
+    console.log('event', $event);
   }
 
   play(e) {
