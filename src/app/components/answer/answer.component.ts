@@ -13,13 +13,14 @@ export class AnswerComponent implements OnInit {
   cRoot = 'c4';
   count = 0;
   recent: string;
-  value: string;
+  intervalActual: String;
   lvl = '';
   correct: boolean;
   incorrect: boolean;
   intervals: any;
   interval: any;
-  clicked= false;
+  clicked = false;
+  intervalExpected: string ;
 
   constructor(public musicService: MusicService) {
     this.intervals = this.musicService.intervals;
@@ -34,6 +35,11 @@ export class AnswerComponent implements OnInit {
     console.log('event', $event);
   }
 
+  setRelevantProps() {
+    this.intervalActual = this.intervalActual.toLowerCase();
+    this.intervalExpected = this.intervals[this.interval];
+  }
+
   play(e) {
     const path = '../../assets/music/' + e + '.wav';
     const sound = new Audio(path);
@@ -41,22 +47,25 @@ export class AnswerComponent implements OnInit {
   }
 
   getInterval() {
-    return this.interval = this.notes.indexOf(this.recent) - this.notes.indexOf(this.cRoot);
+    this.interval = this.notes.indexOf(this.recent) - this.notes.indexOf(this.cRoot);
+    return this.interval;
   }
 
   onSubmit() {
     this.getInterval();
+    this.setRelevantProps();
     if (this.clicked) {
       this.validate();
-      this.value = '';
+      this.intervalActual = '';
     } else {
       this.clicked = true;
     }
   }
 
   validate() {
-    this.value = this.value.toLowerCase();
-    if (this.value === this.intervals[this.interval] ) {
+    this.intervalActual = this.intervalActual.toLowerCase();
+    this.intervalExpected = this.intervals[this.interval];
+    if (this.intervalActual === this.intervals[this.interval] ) {
       this.correct = true;
       this.incorrect = false;
     } else {
