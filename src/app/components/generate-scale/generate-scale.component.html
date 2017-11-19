@@ -1,22 +1,14 @@
 <div class="container">
-  <h3> Generate Scale </h3>
+
+ <h3> Generate Scale: </h3>
   <div class="btn-group">
-    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Small button
-    </button>
-    <div class="dropdown-menu">
-      ...
-    </div>
+    <input class="form-control form-inline col-md-6" type="text" name="scale" required placeholder="i.e. g# minor">
+    <input class="btn btn-primary" type="submit" value="Submit" (click)="update()">
   </div>
-  <div class="btn-group">
-    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Small button
-    </button>
-    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="sr-only">Toggle Dropdown</span>
-    </button>
-    <div class="dropdown-menu">
-      ...
-    </div>
-  </div> 
+
+  <input #box
+  (keyup.enter)="update(box.value)"
+  (blur)="update(box.value)">
+
+<p>{{value}}</p>
 </div>
