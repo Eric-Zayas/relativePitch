@@ -1,11 +1,4 @@
-<br>
 <div class="container">
-  <br><br>
-
- <app-challenge-select></app-challenge-select>
-
-  <br><br>
-
   <div class="form-inline">
     <input class="form-control form-inline col-md-6" type="text" name="interval" required id="submit" [(ngModel)]="intervalActual">
     <input class="btn btn-primary sub" type="submit" value="Submit" (click)="onSubmit()">
@@ -13,7 +6,7 @@
 
   <div  *ngIf="correct" class="alert alert-success" role="alert"> Correct! </div>
   <div  *ngIf="incorrect" class="alert alert-danger" role="alert"> Incorrect! </div>
-  <br><br>
+  <br>
 
   <app-easy (sendData)= recieveData($event) ></app-easy>
   <app-proficiency-table [intervalLog]="intervalLog" ></app-proficiency-table>
