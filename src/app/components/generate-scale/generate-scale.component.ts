@@ -17,6 +17,7 @@ export class GenerateScaleComponent implements OnInit {
   rootNote: string;
   generateScale;
   scale: string[];
+  count = 0;
 
   constructor(public musicService: MusicService) {
     this.notes = musicService.notes;
@@ -33,13 +34,23 @@ export class GenerateScaleComponent implements OnInit {
 
   update() {
     this.scale = this.generateScale(this.rootNote, this.scaleType);
-    console.log(this.scale);
   }
 
   formatUserInput() {
+    this.scaleToGenerate = this.scaleToGenerate.toLowerCase();
     const temp = this.scaleToGenerate.split(' ');
-    this.rootNote = temp[0];
-    this.scaleType = temp[1];
+    this.rootNote = temp[0] + '4';
+    this.scaleType = this.scales[temp[1]];
+    this.update();
+  }
 
+  playInterval() {
+    if (this.count === this.scale.length ) { return; }
+    this.play(this.rootNote);
+
+    setTimeout( () => {
+      this.play(this.scale[this.count]);
+      this.count += 1;
+    }, 800);
   }
 }

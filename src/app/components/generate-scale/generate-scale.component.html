@@ -3,12 +3,8 @@
  <h3> Generate Scale: </h3>
   <div class="btn-group">
     <input class="form-control form-inline col-md-6" type="text" name="scale" [(ngModel)]="scaleToGenerate" required placeholder="i.e. g# minor">
-    <input class="btn btn-primary" type="submit" value="Submit" (click)="update()">
+    <input class="btn btn-primary" type="submit" value="Submit" (click)="formatUserInput()">
+    <input class="btn btn-primary" id="playBtn" type="submit" value="Play Interval" (click)="playInterval()">
   </div>
 
-  <input #box
-  (keyup.enter)="update(box.value)"
-  (blur)="update(box.value)">
-
-<p>{{value}}</p>
 </div>
