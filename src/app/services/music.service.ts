@@ -92,9 +92,8 @@ generateRandomMinorScale() {
   return minorScale;
 }
 
-generateScale(scaleType, rootNote) {
+generateScale(rootNote, scaleType) {
   rootNote = rootNote || this.notes[Math.floor(11 * Math.random())];
-
   const scale: string[] = [];
   scale.push(rootNote);
   let track = this.notes.indexOf(rootNote);
