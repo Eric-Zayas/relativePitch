@@ -17,6 +17,7 @@ import { MediumComponent } from './components/medium/medium.component';
 import { ChallengeSelectComponent } from './components/challenge-select/challenge-select.component';
 import { GenerateScaleComponent } from './components/generate-scale/generate-scale.component';
 import { ProficiencyTableComponent } from './components/proficiency-table/proficiency-table.component';
+import { ModeSelectComponent } from './components/mode-select/mode-select.component';
 
 const appRoutes: Routes = [
  {path: '' , component: HomeComponent},
@@ -41,7 +42,8 @@ export const config = {
     MediumComponent,
     ChallengeSelectComponent,
     GenerateScaleComponent,
-    ProficiencyTableComponent
+    ProficiencyTableComponent,
+    ModeSelectComponent
   ],
   imports: [
     BrowserModule,

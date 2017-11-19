@@ -12,7 +12,7 @@ export class GenerateScaleComponent implements OnInit {
   notes: string[];
   scales: any;
   intervals: any;
-  value = '';
+  scale: string;
 
   constructor(public musicService: MusicService) {
     this.notes = musicService.notes;
@@ -20,16 +20,13 @@ export class GenerateScaleComponent implements OnInit {
     this.intervals = musicService.intervals;
   }
 
-  ngOnInit() {
-    console.log('this.notes', this.notes);
-  }
+  ngOnInit() {}
 
   play(noteVal) {
     this.musicService.playNote(noteVal);
   }
 
-  update(value: string) {
-    console.log('value', value);
-    this.value = value;
+  update() {
+    console.log(this.scale);
   }
 }

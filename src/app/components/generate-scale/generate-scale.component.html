@@ -2,7 +2,7 @@
 
  <h3> Generate Scale: </h3>
   <div class="btn-group">
-    <input class="form-control form-inline col-md-6" type="text" name="scale" required placeholder="i.e. g# minor">
+    <input class="form-control form-inline col-md-6" type="text" name="scale" [(ngModel)]="scale" required placeholder="i.e. g# minor">
     <input class="btn btn-primary" type="submit" value="Submit" (click)="update()">
   </div>
 
