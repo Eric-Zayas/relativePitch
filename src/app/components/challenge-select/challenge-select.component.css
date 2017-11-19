@@ -1,12 +1,9 @@
-.body{
-  display:block; 
+.container{
+  display:flex;
+  flex-direction: row; 
   max-height: 5%;
-  margin : 5%;
-  margin-bottom: 0;
-}
-
-.header {
-  margin-right: 5%;
+  /* margin : 5%; */
+  /* margin-bottom: 0; */
 }
 
 .drop {
