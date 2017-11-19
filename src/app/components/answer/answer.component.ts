@@ -66,8 +66,6 @@ export class AnswerComponent implements OnInit {
   }
 
   validate() {
-    this.intervalActual = this.intervalActual.toLowerCase();
-    this.intervalExpected = this.intervals[this.interval];
     if (this.intervalActual === this.intervals[this.interval] ) {
       this.correct = true;
       this.incorrect = false;
