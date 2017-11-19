@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-inline">
-    <input class="form-control form-inline col-md-6" type="text" name="interval" required id="submit" [(ngModel)]="intervalActual">
-    <input class="btn btn-primary sub" type="submit" value="Submit" (click)="onSubmit()">
+    <input class="form-control form-inline col-md-6" type="text" name="interval" required id="submit" [(ngModel)]="intervalActual" placeholder="i.e. minor sixth">
+    <input class="btn btn-primary" type="submit" value="Submit" (click)="onSubmit()">
   </div>
 
   <div  *ngIf="correct" class="alert alert-success" role="alert"> Correct! </div>
