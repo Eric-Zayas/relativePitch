@@ -21,6 +21,8 @@ export class AnswerComponent implements OnInit {
   interval: any;
   clicked = false;
   intervalExpected: string ;
+  intervalLog: any[] = [];
+
 
   constructor(public musicService: MusicService) {
     this.intervals = this.musicService.intervals;
@@ -32,12 +34,13 @@ export class AnswerComponent implements OnInit {
 
   recieveData($event) {
     this.recent = $event;
-    console.log('event', $event);
   }
 
   setRelevantProps() {
     this.intervalActual = this.intervalActual.toLowerCase();
     this.intervalExpected = this.intervals[this.interval];
+    const intervalTuple = [this.intervalExpected , this.intervalActual];
+    this.intervalLog.push(intervalTuple);
   }
 
   play(e) {
@@ -73,6 +76,7 @@ export class AnswerComponent implements OnInit {
       this.correct = false;
     }
   }
+
   display(e) {
     document.getElementById('dropdownMenuButton').innerHTML = e.target.innerHTML;
   }

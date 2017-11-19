@@ -8,10 +8,10 @@ import { Component, OnInit, Input, OnChanges, SimpleChange } from '@angular/core
 
 export class ProficiencyTableComponent implements OnInit {
 
-  @Input() intervalExpected: string;
-  @Input() intervalActual: string;
+  @Input() intervalLog;
 
-  constructor() { }
+
+  constructor() {}
 
   ngOnInit() {
 

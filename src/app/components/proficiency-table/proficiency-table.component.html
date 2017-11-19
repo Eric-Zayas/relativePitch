@@ -4,38 +4,10 @@
       <th>Expected</th>
       <th>Actual</th> 
     </tr>
-    <!-- <tr>
-      <td> Zero </td>
-      <td> Correct </td>
+    <tr *ngFor="let interval of intervalLog">
+      <td>  {{ interval[0] }}</td>
+      <td> {{ interval[1] }}</td>
     </tr>
-    <tr>
-      <td>Major Second</td>
-      <td> Correct </td>
-    </tr>
-    <tr>
-      <td>Major Third</td>
-      <td> Correct </td>
-    </tr>
-    <tr>
-      <td>Perfect Fourth</td>
-      <td> Correct </td>
-    </tr> 
-    <tr>
-      <td>Perfect Fifth</td>
-      <td> Correct </td>
-    </tr>
-    <tr>
-      <td>Minor Sixth</td>
-      <td> Correct </td>
-    </tr>
-    <tr>
-      <td>Major Seventh</td>
-      <td> Correct </td>
-    </tr>
-    <tr>
-      <td>Octave</td>
-      <td> Correct </td>
-    </tr> -->
+    
   </table>  
-  <h1>{{intervalName}}</h1>
 </div>
